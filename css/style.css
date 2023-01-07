@@ -170,6 +170,10 @@ button#info{
     }
 }
 @media(max-width: 530px) {
+    .notifications{
+        right: 0;
+        top: 0;
+    }
     .notifications .toast{
         font-size: 12px;
         gap: 10px;
