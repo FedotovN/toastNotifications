@@ -173,7 +173,7 @@ button#info{
     .notifications .toast{
         font-size: 12px;
         gap: 10px;
-        padding: 10x 18px;
+        padding: 8x 14px;
     }
     .buttons{
         flex-flow: column nowrap;
