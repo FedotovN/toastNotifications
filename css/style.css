@@ -89,6 +89,8 @@ button#info{
 }
 .toast .column{
     display: flex;
+    height: 100%;
+    align-items: center;
     gap: 25px;
 }
 .toast span{
@@ -101,6 +103,7 @@ button#info{
 }
 .toast i:first-child{
     transform: scale(1.5);
+    li
 }
 .toast i:last-child:hover{
     color: var(--brighter);
@@ -178,8 +181,13 @@ button#info{
         font-size: 12px;
         gap: 10px;
         padding: 8x 14px;
+        letter-spacing: 1px;
+    }
+    .toast .column{
+        gap: 10px;
     }
     .buttons{
+        margin-top: 100px;
         flex-flow: column nowrap;
         justify-content: center;
         align-self: center;
