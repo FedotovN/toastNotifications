@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --dark: #132028;
+    --brighter: #365e70;
+    --white: #e1e1e1;
+    --green: #418d47;
+    --red: #e13b3b;
+    --yellow: #fb8520;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: var(--dark);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttons{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.buttons button{
+    padding: 15px 40px;
+    letter-spacing: 1.1px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    background-color: var(--white);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    transition: .2s;
+}
+button:hover{
+    filter: opacity(.8);
+}
+button#success{
+    color: var(--green);
+}
+button#warning{
+    color: var(--yellow);
+}
+button#error{
+    color: var(--red);
+}
+button#info{
+    color: var(--brighter);
+}
+.notifications{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    list-style-type: none;
+    overflow: hidden;
+}
+.notifications .toast{
+    position: relative;
+    font-size: 18px;
+    letter-spacing: 1.05px;
+    color: var(--dark);
+    display: block;
+    padding: 15px 25px;
+    background-color: var(--white);
+    border-radius: 4px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    overflow: hidden;
+    animation: popup ease-out .6s;
+}
+.toast::before{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #e13b3b;
+    animation: progress 5s linear forwards;
+}
+.toast .column{
+    display: flex;
+    gap: 25px;
+}
+.toast span{
+    text-align: start;
+}
+.toast i:last-child{
+    color: var(--dark);
+    cursor: pointer;
+    transition: .2s;
+}
+.toast i:first-child{
+    transform: scale(1.5);
+}
+.toast i:last-child:hover{
+    color: var(--brighter);
+}
+
+.toast.success{
+    color: var(--green);
+}
+.toast.warning{
+    color: var(--yellow);
+}
+.toast.error{
+    color: var(--red);
+}
+.toast.info{
+    color: var(--brighter);
+}
+
+.toast.success::before{
+    background-color: var(--green);
+}
+.toast.warning::before{
+    background-color: var(--yellow);
+}
+.toast.error::before{
+    background-color: var(--red);
+}
+.toast.info::before{
+    background-color: var(--brighter);
+}
+
+@keyframes progress{
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+
+@keyframes popup{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+@keyframes remove{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(calc(100% + 25px));
+    }
+}
+@media(max-width: 700px) {
+    .notifications .toast{
+        font-size: 15px;
+        gap: 12.5px;
+        padding: 12.5x 20px;
+    }
+    .buttons{
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-self: center;
+    }
+}
