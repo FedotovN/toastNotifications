@@ -20,7 +20,7 @@ function createToast(id){
                             <i class="fa-solid ${toastIcons[id]}"></i>
                             <span>${id.charAt(0).toUpperCase() + id.slice(1, id.toString().length)}: This is the ${id} notification!</span>
                         </div>
-                        <i class="fa-solid fa-xmark" onclick="removeToast(this, false)"></i>`
+                        <i class="fa-solid fa-xmark" onclick="removeToast(this.parentElement, false)"></i>`
     notifications.appendChild(toast)
     setTimeout(()=>removeToast(toast, true), 5000)
 }
